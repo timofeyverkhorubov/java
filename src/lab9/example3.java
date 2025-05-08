@@ -1,0 +1,43 @@
+package lab9;
+
+import java.util.Scanner;
+
+public class example3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("¬ведите размер массива: ");
+        int size = scanner.nextInt();
+
+        int[] array = new int[size];
+
+        System.out.println("¬ведите элементы массива:");
+        recursiveInput(array, 0, scanner);
+
+        System.out.println("¬ывод массива:");
+        recursiveOutput(array, 0);
+
+        scanner.close();
+    }
+
+    public static void recursiveInput(int[] array, int index, Scanner scanner) {
+        if (index == array.length) {
+            return;
+        }
+
+        System.out.print("Ёлемент [" + index + "]: ");
+        array[index] = scanner.nextInt();
+
+        recursiveInput(array, index + 1, scanner);
+    }
+
+    public static void recursiveOutput(int[] array, int index) {
+        if (index == array.length) {
+            return;
+        }
+
+        System.out.print(array[index] + " ");
+
+        recursiveOutput(array, index + 1);
+    }
+}
