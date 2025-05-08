@@ -17,7 +17,6 @@ public class example7 {
             humansArrayList.remove(index);
         }
         long time1 = System.nanoTime() - startTime1;
-        System.out.println("Победитель под номером: " + humansArrayList.get(0));
         System.out.println("Время выполнения: " + time1);
 
 
@@ -33,7 +32,6 @@ public class example7 {
             humansLinkedList.remove(index);
         }
         long time2 = System.nanoTime() - startTime2;
-        System.out.println("Победитель под номером: " + humansLinkedList.getFirst());
         System.out.println("Время выполнения: " + time2);
     }
 }

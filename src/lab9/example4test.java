@@ -2,16 +2,18 @@ package lab9;
 
 public class example4test {
     public static void main(String[] args) {
-        example4node head = null;
-        example4node ref;
+        example4node node0 = new example4node(0, null);
+        example4node node1 = new example4node(1, null);
+        example4node node2 = new example4node(2, null);
+        example4node node3 = new example4node(3, null);
 
-        for (int i = 0; i < 5; i++) {
-            head = new example4node(i, head);
-        }
+        node0.next = node1;
+        node1.next = node2;
+        node2.next = node3;
 
-        ref = head;
+        example4node ref = node0;
         while (ref != null) {
-            System.out.println("Value: " + ref.value);
+            System.out.print(" " + ref.value);
             ref = ref.next;
         }
     }

@@ -4,7 +4,7 @@ public class example8 {
     public static void main(String[] args) {
         example8list listHead = new example8list();
         example8list listTail = new example8list();
-        String[] values = {"Kirill", "Danil", "Denis", "Vlad", "Daniel"};
+        String[] values = {"Ahmed", "Mamed", "Mahmud", "Muhammad", "Andrey"};
         System.out.println("Заполение списка с головы:");
         listHead.createHead(values);
         System.out.println(listHead.toString());
@@ -12,13 +12,13 @@ public class example8 {
         listTail.createTail(values);
         System.out.println(listTail.toString());
         System.out.println("Добавление элемента в начало списка:");
-        listHead.addFirst("Victor");
+        listHead.addFirst("Xi");
         System.out.println(listHead.toString());
         System.out.println("Добавление элемента в конец списка:");
-        listHead.addLast("Magnus");
+        listHead.addLast("Albert");
         System.out.println(listHead.toString());
         System.out.println("Добавление элемента в указанное место списка:");
-        listHead.insert(2, "Linkoln");
+        listHead.insert(2, "Ivan");
         System.out.println(listHead.toString());
         System.out.println("Удаление первого элемента из списка:");
         listHead.removeFirst();
