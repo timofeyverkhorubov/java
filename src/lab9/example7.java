@@ -17,7 +17,7 @@ public class example7 {
             humansArrayList.remove(index);
         }
         long time1 = System.nanoTime() - startTime1;
-        System.out.println("Время выполнения: " + time1);
+        System.out.println("Р’СЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ: " + time1);
 
 
         LinkedList<Integer> humansLinkedList = new LinkedList<Integer>();
@@ -32,6 +32,6 @@ public class example7 {
             humansLinkedList.remove(index);
         }
         long time2 = System.nanoTime() - startTime2;
-        System.out.println("Время выполнения: " + time2);
+        System.out.println("Р’СЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ: " + time2);
     }
 }

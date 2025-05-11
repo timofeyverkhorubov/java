@@ -17,44 +17,44 @@ public class ex1XmlFile {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 
-            // Создание корневого элемента
+            // РЎРѕР·РґР°РЅРёРµ РєРѕСЂРЅРµРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
             Document doc = docBuilder.newDocument();
             Element rootElement = doc.createElement("library");
             doc.appendChild(rootElement);
 
-            // Добавление первой книги
+            // Р”РѕР±Р°РІР»РµРЅРёРµ РїРµСЂРІРѕР№ РєРЅРёРіРё
             Element book1 = doc.createElement("book");
             rootElement.appendChild(book1);
 
             Element title1 = doc.createElement("title");
-            title1.appendChild(doc.createTextNode("Война и мир"));
+            title1.appendChild(doc.createTextNode("Р’РѕР№РЅР° Рё РјРёСЂ"));
             book1.appendChild(title1);
 
             Element author1 = doc.createElement("author");
-            author1.appendChild(doc.createTextNode("Лев Толстой"));
+            author1.appendChild(doc.createTextNode("Р›РµРІ РўРѕР»СЃС‚РѕР№"));
             book1.appendChild(author1);
 
             Element year1 = doc.createElement("year");
             year1.appendChild(doc.createTextNode("1869"));
             book1.appendChild(year1);
 
-            // Добавление второй книги
+            // Р”РѕР±Р°РІР»РµРЅРёРµ РІС‚РѕСЂРѕР№ РєРЅРёРіРё
             Element book2 = doc.createElement("book");
             rootElement.appendChild(book2);
 
             Element title2 = doc.createElement("title");
-            title2.appendChild(doc.createTextNode("Мастер и Маргарита"));
+            title2.appendChild(doc.createTextNode("РњР°СЃС‚РµСЂ Рё РњР°СЂРіР°СЂРёС‚Р°"));
             book2.appendChild(title2);
 
             Element author2 = doc.createElement("author");
-            author2.appendChild(doc.createTextNode("Михаил Булгаков"));
+            author2.appendChild(doc.createTextNode("РњРёС…Р°РёР» Р‘СѓР»РіР°РєРѕРІ"));
             book2.appendChild(author2);
 
             Element year2 = doc.createElement("year");
             year2.appendChild(doc.createTextNode("1967"));
             book2.appendChild(year2);
 
-            // Запись в XML-файл
+            // Р—Р°РїРёСЃСЊ РІ XML-С„Р°Р№Р»
             doc.setXmlStandalone(true);
             doc.normalizeDocument();
             javax.xml.transform.TransformerFactory tf = javax.xml.transform.TransformerFactory.newInstance();
@@ -67,9 +67,11 @@ public class ex1XmlFile {
                     new javax.xml.transform.stream.StreamResult(new File("src/lab10/ex1XmlFile.xml"));
             transformer.transform(source, result);
 
-            System.out.println("XML-файл успешно создан!");
+            System.out.println("XML-С„Р°Р№Р» СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ!");
         } catch (Exception pce) {
             pce.printStackTrace();
         }
     }
+
 }
+

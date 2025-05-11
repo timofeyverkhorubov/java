@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class example2 {
         public static void main(String[] args) {
             Scanner in = new Scanner(System.in);
-            System.out.println("Введите число");
+            System.out.println("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ");
             int number = in.nextInt();
             String result = transfer(number, "");
             StringBuilder sb = new StringBuilder(result);

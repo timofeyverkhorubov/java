@@ -4,40 +4,41 @@ public class example8 {
     public static void main(String[] args) {
         example8list listHead = new example8list();
         example8list listTail = new example8list();
-        String[] values = {"Ahmed", "Mamed", "Mahmud", "Muhammad", "Andrey"};
-        System.out.println("Заполение списка с головы:");
+        String[] values = {"Kirill", "Danil", "Denis", "Vlad", "Daniel"};
+        System.out.println("Р—Р°РїРѕР»РµРЅРёРµ СЃРїРёСЃРєР° СЃ РіРѕР»РѕРІС‹:");
         listHead.createHead(values);
         System.out.println(listHead.toString());
-        System.out.println("Заполение списка с хвоста:");
+        System.out.println("Р—Р°РїРѕР»РµРЅРёРµ СЃРїРёСЃРєР° СЃ С…РІРѕСЃС‚Р°:");
         listTail.createTail(values);
         System.out.println(listTail.toString());
-        System.out.println("Добавление элемента в начало списка:");
-        listHead.addFirst("Xi");
+        System.out.println("Р”РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ РЅР°С‡Р°Р»Рѕ СЃРїРёСЃРєР°:");
+        listHead.addFirst("Victor");
         System.out.println(listHead.toString());
-        System.out.println("Добавление элемента в конец списка:");
-        listHead.addLast("Albert");
+        System.out.println("Р”РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ РєРѕРЅРµС† СЃРїРёСЃРєР°:");
+        listHead.addLast("Magnus");
         System.out.println(listHead.toString());
-        System.out.println("Добавление элемента в указанное место списка:");
-        listHead.insert(2, "Ivan");
+        System.out.println("Р”РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РІ СѓРєР°Р·Р°РЅРЅРѕРµ РјРµСЃС‚Рѕ СЃРїРёСЃРєР°:");
+        listHead.insert(2, "Linkoln");
         System.out.println(listHead.toString());
-        System.out.println("Удаление первого элемента из списка:");
+        System.out.println("РЈРґР°Р»РµРЅРёРµ РїРµСЂРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р° РёР· СЃРїРёСЃРєР°:");
         listHead.removeFirst();
         System.out.println(listHead.toString());
-        System.out.println("Удаление последнего элемента из списка:");
+        System.out.println("РЈРґР°Р»РµРЅРёРµ РїРѕСЃР»РµРґРЅРµРіРѕ СЌР»РµРјРµРЅС‚Р° РёР· СЃРїРёСЃРєР°:");
         listHead.removeLast();
         System.out.println(listHead.toString());
-        System.out.println("Удаление элемента по индексу из списка:");
+        System.out.println("РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° РїРѕ РёРЅРґРµРєСЃСѓ РёР· СЃРїРёСЃРєР°:");
         listHead.remove(3);
         System.out.println(listHead.toString());
         example8list listHeadRec = new example8list();
-        System.out.println("Заполение списка с головы c помощью рекурсии:");
+        System.out.println("Р—Р°РїРѕР»РµРЅРёРµ СЃРїРёСЃРєР° СЃ РіРѕР»РѕРІС‹ c РїРѕРјРѕС‰СЊСЋ СЂРµРєСѓСЂСЃРёРё:");
         listHeadRec.createHeadRec(values);
         System.out.println(listHeadRec.toString());
         example8list listTailRec = new example8list();
-        System.out.println("Заполение списка с хвоста с помощью рекурсии:");
+        System.out.println("Р—Р°РїРѕР»РµРЅРёРµ СЃРїРёСЃРєР° СЃ С…РІРѕСЃС‚Р° СЃ РїРѕРјРѕС‰СЊСЋ СЂРµРєСѓСЂСЃРёРё:");
         listTailRec.createTailRec(values);
         System.out.println(listTailRec.toString());
-        System.out.println("Вывод списка с помощью рекурсии:");
+        System.out.println("Р’С‹РІРѕРґ СЃРїРёСЃРєР° СЃ РїРѕРјРѕС‰СЊСЋ СЂРµРєСѓСЂСЃРёРё:");
         System.out.println(listTailRec.toStringRec());
     }
+
 }

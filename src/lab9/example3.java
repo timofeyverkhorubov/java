@@ -6,15 +6,15 @@ public class example3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введите размер массива: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°: ");
         int size = scanner.nextInt();
 
         int[] array = new int[size];
 
-        System.out.println("Введите элементы массива:");
+        System.out.println("Р’РІРµРґРёС‚Рµ СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР°:");
         recursiveInput(array, 0, scanner);
 
-        System.out.println("Вывод массива:");
+        System.out.println("Р’С‹РІРѕРґ РјР°СЃСЃРёРІР°:");
         recursiveOutput(array, 0);
 
         scanner.close();
@@ -25,7 +25,7 @@ public class example3 {
             return;
         }
 
-        System.out.print("Элемент [" + index + "]: ");
+        System.out.print("Р­Р»РµРјРµРЅС‚ [" + index + "]: ");
         array[index] = scanner.nextInt();
 
         recursiveInput(array, index + 1, scanner);

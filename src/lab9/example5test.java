@@ -7,7 +7,7 @@ public class example5test {
             head = new example5node(i, head);
         }
         example5node ref = head;
-        System.out.println("Односвязный список с хвоста");
+        System.out.println("РћРґРЅРѕСЃРІСЏР·РЅС‹Р№ СЃРїРёСЃРѕРє СЃ С…РІРѕСЃС‚Р°");
         while (ref != null) {
             System.out.print(" " + ref.value);
             ref = ref.next;

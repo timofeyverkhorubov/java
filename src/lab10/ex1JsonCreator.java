@@ -11,13 +11,13 @@ public class ex1JsonCreator {
         JSONArray books = new JSONArray();
 
         JSONObject book1 = new JSONObject();
-        book1.put("title", "Война и мир");
-        book1.put("author", "Лев Толстой");
+        book1.put("title", "Р’РѕР№РЅР° Рё РјРёСЂ");
+        book1.put("author", "Р›РµРІ РўРѕР»СЃС‚РѕР№");
         book1.put("year", 1869);
 
         JSONObject book2 = new JSONObject();
-        book2.put("title", "Мастер и Маргарита");
-        book2.put("author", "Михаил Булгаков");
+        book2.put("title", "РњР°СЃС‚РµСЂ Рё РњР°СЂРіР°СЂРёС‚Р°");
+        book2.put("author", "РњРёС…Р°РёР» Р‘СѓР»РіР°РєРѕРІ");
         book2.put("year", 1967);
 
         books.add(book1);
@@ -27,9 +27,10 @@ public class ex1JsonCreator {
 
         try (FileWriter file = new FileWriter("D:\\java\\java\\src\\lab10\\ex1JsonCreator.json")) {
             file.write(library.toJSONString());
-            System.out.println("Json файл успешно создан!");
+            System.out.println("Json С„Р°Р№Р» СѓСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅ!");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }

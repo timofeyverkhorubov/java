@@ -15,27 +15,27 @@ public class ex5 {
         XSSFWorkbook workbook = null;
 
         try {
-            // Открываем файл Excel для чтения
+            // РћС‚РєСЂС‹РІР°РµРј С„Р°Р№Р» Excel РґР»СЏ С‡С‚РµРЅРёСЏ
             inputStream = new FileInputStream(filePath);
 
-            // Создаем экземпляр книги Excel из файла
+            // РЎРѕР·РґР°РµРј СЌРєР·РµРјРїР»СЏСЂ РєРЅРёРіРё Excel РёР· С„Р°Р№Р»Р°
             workbook = new XSSFWorkbook(inputStream);
 
-            // Получаем лист из книги по его имени
-            XSSFSheet sheet = workbook.getSheet("Товары");
+            // РџРѕР»СѓС‡Р°РµРј Р»РёСЃС‚ РёР· РєРЅРёРіРё РїРѕ РµРіРѕ РёРјРµРЅРё
+            XSSFSheet sheet = workbook.getSheet("РўРѕРІР°СЂС‹");
 
             if (sheet == null) {
-                System.err.println("Лист с именем 'Товары' не найден в файле.");
-                return; // Завершаем программу, если лист не найден
+                System.err.println("Р›РёСЃС‚ СЃ РёРјРµРЅРµРј 'РўРѕРІР°СЂС‹' РЅРµ РЅР°Р№РґРµРЅ РІ С„Р°Р№Р»Рµ.");
+                return; // Р—Р°РІРµСЂС€Р°РµРј РїСЂРѕРіСЂР°РјРјСѓ, РµСЃР»Рё Р»РёСЃС‚ РЅРµ РЅР°Р№РґРµРЅ
             }
 
-            // Перебираем строки и ячейки листа
+            // РџРµСЂРµР±РёСЂР°РµРј СЃС‚СЂРѕРєРё Рё СЏС‡РµР№РєРё Р»РёСЃС‚Р°
             for (Row row : sheet) {
-                if (row == null) continue; // Пропускаем пустые строки
+                if (row == null) continue; // РџСЂРѕРїСѓСЃРєР°РµРј РїСѓСЃС‚С‹Рµ СЃС‚СЂРѕРєРё
 
                 for (Cell cell : row) {
                     if (cell == null) {
-                        System.out.print("<пусто>\t"); // Выводим "<пусто>", если ячейка пустая
+                        System.out.print("<РїСѓСЃС‚Рѕ>\t"); // Р’С‹РІРѕРґРёРј "<РїСѓСЃС‚Рѕ>", РµСЃР»Рё СЏС‡РµР№РєР° РїСѓСЃС‚Р°СЏ
                     } else {
                         System.out.print(cell.toString() + "\t");
                     }
@@ -44,20 +44,21 @@ public class ex5 {
             }
 
         } catch (IOException e) {
-            System.err.println("Ошибка при чтении файла: " + e.getMessage());
-            System.err.println("Убедитесь, что файл существует и не поврежден, и путь к файлу указан верно.");
+            System.err.println("РћС€РёР±РєР° РїСЂРё С‡С‚РµРЅРёРё С„Р°Р№Р»Р°: " + e.getMessage());
+            System.err.println("РЈР±РµРґРёС‚РµСЃСЊ, С‡С‚Рѕ С„Р°Р№Р» СЃСѓС‰РµСЃС‚РІСѓРµС‚ Рё РЅРµ РїРѕРІСЂРµР¶РґРµРЅ, Рё РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ СѓРєР°Р·Р°РЅ РІРµСЂРЅРѕ.");
 
         } catch (Exception e) {
-            System.err.println("Непредвиденная ошибка: " + e.getMessage());
+            System.err.println("РќРµРїСЂРµРґРІРёРґРµРЅРЅР°СЏ РѕС€РёР±РєР°: " + e.getMessage());
 
         } finally {
-            // Закрываем файл и освобождаем ресурсы в блоке finally
+            // Р—Р°РєСЂС‹РІР°РµРј С„Р°Р№Р» Рё РѕСЃРІРѕР±РѕР¶РґР°РµРј СЂРµСЃСѓСЂСЃС‹ РІ Р±Р»РѕРєРµ finally
             try {
                 if (workbook != null) workbook.close();
                 if (inputStream != null) inputStream.close();
             } catch (IOException ex) {
-                System.err.println("Ошибка при закрытии файла: " + ex.getMessage());
+                System.err.println("РћС€РёР±РєР° РїСЂРё Р·Р°РєСЂС‹С‚РёРё С„Р°Р№Р»Р°: " + ex.getMessage());
             }
         }
     }
 }
+

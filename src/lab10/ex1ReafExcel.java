@@ -10,27 +10,28 @@ import java.io.IOException;
 
 public class ex1ReafExcel {
     public static void main(String[] args) throws IOException {
-        // Открываем файл Excel для чтения
+        // РћС‚РєСЂС‹РІР°РµРј С„Р°Р№Р» Excel РґР»СЏ С‡С‚РµРЅРёСЏ
         String filePath = "D:\\java\\java\\src\\lab10\\ex1WriteExcel.xlsx";
         FileInputStream inputStream = new FileInputStream(filePath);
 
-        // Создаем экземпляр книги Excel из файла
+        // РЎРѕР·РґР°РµРј СЌРєР·РµРјРїР»СЏСЂ РєРЅРёРіРё Excel РёР· С„Р°Р№Р»Р°
         XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
 
-        // Получаем лист из книги по его имени
-        XSSFSheet sheet = workbook.getSheet("Товары");
+        // РџРѕР»СѓС‡Р°РµРј Р»РёСЃС‚ РёР· РєРЅРёРіРё РїРѕ РµРіРѕ РёРјРµРЅРё
+        XSSFSheet sheet = workbook.getSheet("РўРѕРІР°СЂС‹");
 
-        // Перебираем строки и ячейки листа
+        // РџРµСЂРµР±РёСЂР°РµРј СЃС‚СЂРѕРєРё Рё СЏС‡РµР№РєРё Р»РёСЃС‚Р°
         for (Row row : sheet) {
             for (Cell cell : row) {
-                // Выводим значения ячейки на экран
+                // Р’С‹РІРѕРґРёРј Р·РЅР°С‡РµРЅРёСЏ СЏС‡РµР№РєРё РЅР° СЌРєСЂР°РЅ
                 System.out.println(cell.toString() + "\t");
             }
             System.out.println();
         }
 
-        // Закрываем файл и освобождаем ресурсы
+        // Р—Р°РєСЂС‹РІР°РµРј С„Р°Р№Р» Рё РѕСЃРІРѕР±РѕР¶РґР°РµРј СЂРµСЃСѓСЂСЃС‹
         workbook.close();
         inputStream.close();
     }
+
 }

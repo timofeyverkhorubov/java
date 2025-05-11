@@ -18,13 +18,13 @@ public class ex2 {
             Document doc = loadOrCreateDocument();
 
             while (true) {
-                System.out.println("\nВыберите действие:");
-                System.out.println("1. Добавить новую книгу");
-                System.out.println("2. Найти книгу по автору");
-                System.out.println("3. Найти книгу по году издания");
-                System.out.println("4. Удалить книгу по названию");
-                System.out.println("5. Выйти");
-                System.out.print("Ваш выбор: ");
+                System.out.println("\nР’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:");
+                System.out.println("1. Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІСѓСЋ РєРЅРёРіСѓ");
+                System.out.println("2. РќР°Р№С‚Рё РєРЅРёРіСѓ РїРѕ Р°РІС‚РѕСЂСѓ");
+                System.out.println("3. РќР°Р№С‚Рё РєРЅРёРіСѓ РїРѕ РіРѕРґСѓ РёР·РґР°РЅРёСЏ");
+                System.out.println("4. РЈРґР°Р»РёС‚СЊ РєРЅРёРіСѓ РїРѕ РЅР°Р·РІР°РЅРёСЋ");
+                System.out.println("5. Р’С‹Р№С‚Рё");
+                System.out.print("Р’Р°С€ РІС‹Р±РѕСЂ: ");
                 int choice = scanner.nextInt();
                 scanner.nextLine();
 
@@ -43,16 +43,17 @@ public class ex2 {
                         break;
                     case 5:
                         saveDocument(doc);
-                        System.out.println("Выход из программы.");
+                        System.out.println("Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹.");
                         return;
                     default:
-                        System.out.println("Неверный выбор. Попробуйте снова.");
+                        System.out.println("РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ. РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°.");
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     private static Document loadOrCreateDocument() throws ParserConfigurationException {
         File file = new File(FILE_PATH);
@@ -81,15 +82,15 @@ public class ex2 {
         DOMSource source = new DOMSource(doc);
         StreamResult result = new StreamResult(new File(FILE_PATH));
         transformer.transform(source, result);
-        System.out.println("XML-файл успешно обновлен!");
+        System.out.println("XML-С„Р°Р№Р» СѓСЃРїРµС€РЅРѕ РѕР±РЅРѕРІР»РµРЅ!");
     }
 
     private static void addNewBook(Document doc, Scanner scanner) {
-        System.out.print("Введите название книги: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё: ");
         String title = scanner.nextLine();
-        System.out.print("Введите автора книги: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ Р°РІС‚РѕСЂР° РєРЅРёРіРё: ");
         String author = scanner.nextLine();
-        System.out.print("Введите год издания: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РіРѕРґ РёР·РґР°РЅРёСЏ: ");
         String year = scanner.nextLine();
 
         Element book = doc.createElement("book");
@@ -106,11 +107,12 @@ public class ex2 {
         book.appendChild(yearElement);
 
         doc.getDocumentElement().appendChild(book);
-        System.out.println("Книга успешно добавлена!");
+        System.out.println("РљРЅРёРіР° СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅР°!");
     }
 
+
     private static void searchByAuthor(Document doc, Scanner scanner) {
-        System.out.print("Введите автора для поиска: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ Р°РІС‚РѕСЂР° РґР»СЏ РїРѕРёСЃРєР°: ");
         String author = scanner.nextLine();
 
         List<Element> foundBooks = nodeListToStream(doc.getElementsByTagName("book"))
@@ -119,15 +121,15 @@ public class ex2 {
                 .collect(Collectors.toList());
 
         if (foundBooks.isEmpty()) {
-            System.out.println("Книги данного автора не найдены.");
+            System.out.println("РљРЅРёРіРё РґР°РЅРЅРѕРіРѕ Р°РІС‚РѕСЂР° РЅРµ РЅР°Р№РґРµРЅС‹.");
         } else {
-            System.out.println("Найденные книги:");
+            System.out.println("РќР°Р№РґРµРЅРЅС‹Рµ РєРЅРёРіРё:");
             foundBooks.forEach(ex2::printBookInfo);
         }
     }
 
     private static void searchByYear(Document doc, Scanner scanner) {
-        System.out.print("Введите год издания для поиска: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РіРѕРґ РёР·РґР°РЅРёСЏ РґР»СЏ РїРѕРёСЃРєР°: ");
         String year = scanner.nextLine();
 
         List<Element> foundBooks = nodeListToStream(doc.getElementsByTagName("book"))
@@ -136,9 +138,9 @@ public class ex2 {
                 .collect(Collectors.toList());
 
         if (foundBooks.isEmpty()) {
-            System.out.println("Книги за данный год не найдены.");
+            System.out.println("РљРЅРёРіРё Р·Р° РґР°РЅРЅС‹Р№ РіРѕРґ РЅРµ РЅР°Р№РґРµРЅС‹.");
         } else {
-            System.out.println("Найденные книги:");
+            System.out.println("РќР°Р№РґРµРЅРЅС‹Рµ РєРЅРёРіРё:");
             foundBooks.forEach(ex2::printBookInfo);
         }
     }
@@ -146,7 +148,7 @@ public class ex2 {
 
 
     private static void deleteBookByTitle(Document doc, Scanner scanner) {
-        System.out.print("Введите название книги для удаления: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё РґР»СЏ СѓРґР°Р»РµРЅРёСЏ: ");
         String title = scanner.nextLine();
         NodeList bookList = doc.getElementsByTagName("book");
         boolean found = false;
@@ -157,13 +159,13 @@ public class ex2 {
             if (bookTitle.equalsIgnoreCase(title)) {
                 doc.getDocumentElement().removeChild(book);
                 found = true;
-                System.out.println("Книга успешно удалена.");
+                System.out.println("РљРЅРёРіР° СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°.");
                 break;
             }
         }
 
         if (!found) {
-            System.out.println("Книга с таким названием не найдена.");
+            System.out.println("РљРЅРёРіР° СЃ С‚Р°РєРёРј РЅР°Р·РІР°РЅРёРµРј РЅРµ РЅР°Р№РґРµРЅР°.");
         }
     }
 
@@ -171,7 +173,7 @@ public class ex2 {
         String title = book.getElementsByTagName("title").item(0).getTextContent();
         String author = book.getElementsByTagName("author").item(0).getTextContent();
         String year = book.getElementsByTagName("year").item(0).getTextContent();
-        System.out.printf("Название: %s, Автор: %s, Год: %s%n", title, author, year);
+        System.out.printf("РќР°Р·РІР°РЅРёРµ: %s, РђРІС‚РѕСЂ: %s, Р“РѕРґ: %s%n", title, author, year);
     }
     private static Stream<Element> nodeListToStream(NodeList nodeList) {
         return IntStream.range(0, nodeList.getLength())

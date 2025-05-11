@@ -19,13 +19,13 @@ public class ex3 {
         try {
             JSONObject jsonObject = loadOrCreateJSON();
             while (true) {
-                System.out.println("\nВыберите действие:");
-                System.out.println("1. Добавить новую книгу");
-                System.out.println("2. Найти книгу по автору");
-                System.out.println("3. Найти книгу по году издания");
-                System.out.println("4. Удалить книгу по названию");
-                System.out.println("5. Выйти");
-                System.out.print("Ваш выбор: ");
+                System.out.println("\nР’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:");
+                System.out.println("1. Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІСѓСЋ РєРЅРёРіСѓ");
+                System.out.println("2. РќР°Р№С‚Рё РєРЅРёРіСѓ РїРѕ Р°РІС‚РѕСЂСѓ");
+                System.out.println("3. РќР°Р№С‚Рё РєРЅРёРіСѓ РїРѕ РіРѕРґСѓ РёР·РґР°РЅРёСЏ");
+                System.out.println("4. РЈРґР°Р»РёС‚СЊ РєРЅРёРіСѓ РїРѕ РЅР°Р·РІР°РЅРёСЋ");
+                System.out.println("5. Р’С‹Р№С‚Рё");
+                System.out.print("Р’Р°С€ РІС‹Р±РѕСЂ: ");
                 int choice = scanner.nextInt();
                 scanner.nextLine();
                 switch (choice) {
@@ -43,10 +43,10 @@ public class ex3 {
                         break;
                     case 5:
                         saveJSON(jsonObject);
-                        System.out.println("Выход из программы.");
+                        System.out.println("Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹.");
                         return;
                     default:
-                        System.out.println("Неверный выбор. Попробуйте снова.");
+                        System.out.println("РќРµРІРµСЂРЅС‹Р№ РІС‹Р±РѕСЂ. РџРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°.");
                 }
             }
         } catch (Exception e) {
@@ -68,18 +68,18 @@ public class ex3 {
     private static void saveJSON(JSONObject jsonObject) {
         try (FileWriter writer = new FileWriter(FILE_PATH)) {
             writer.write(jsonObject.toJSONString());
-            System.out.println("JSON-файл успешно обновлен!");
+            System.out.println("JSON-С„Р°Р№Р» СѓСЃРїРµС€РЅРѕ РѕР±РЅРѕРІР»РµРЅ!");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private static void addNewBook(JSONObject jsonObject, Scanner scanner) {
-        System.out.print("Введите название книги: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё: ");
         String title = scanner.nextLine();
-        System.out.print("Введите автора книги: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ Р°РІС‚РѕСЂР° РєРЅРёРіРё: ");
         String author = scanner.nextLine();
-        System.out.print("Введите год издания: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РіРѕРґ РёР·РґР°РЅРёСЏ: ");
         int year = scanner.nextInt();
         scanner.nextLine();
 
@@ -90,42 +90,42 @@ public class ex3 {
         newBook.put("year", year);
         jsonArray.add(newBook);
 
-        System.out.println("Книга успешно добавлена!");
+        System.out.println("РљРЅРёРіР° СѓСЃРїРµС€РЅРѕ РґРѕР±Р°РІР»РµРЅР°!");
     }
 
     private static void searchByAuthor(JSONObject jsonObject, Scanner scanner) {
-        System.out.print("Введите автора для поиска: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ Р°РІС‚РѕСЂР° РґР»СЏ РїРѕРёСЃРєР°: ");
         String author = scanner.nextLine();
         JSONArray jsonArray = (JSONArray) jsonObject.get("books");
         for (Object obj : jsonArray) {
             JSONObject book = (JSONObject) obj;
             if (author.equals(book.get("author"))) {
-                System.out.println("\nТекущий элемент: book");
-                System.out.println("Название книги: " + book.get("title"));
-                System.out.println("Автор: " + book.get("author"));
-                System.out.println("Год издания: " + book.get("year"));
+                System.out.println("\nРўРµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚: book");
+                System.out.println("РќР°Р·РІР°РЅРёРµ РєРЅРёРіРё: " + book.get("title"));
+                System.out.println("РђРІС‚РѕСЂ: " + book.get("author"));
+                System.out.println("Р“РѕРґ РёР·РґР°РЅРёСЏ: " + book.get("year"));
             }
         }
     }
 
     private static void searchByYear(JSONObject jsonObject, Scanner scanner) {
-        System.out.print("Введите год издания для поиска: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РіРѕРґ РёР·РґР°РЅРёСЏ РґР»СЏ РїРѕРёСЃРєР°: ");
         int year = scanner.nextInt();
         scanner.nextLine();
         JSONArray jsonArray = (JSONArray) jsonObject.get("books");
         for (Object obj : jsonArray) {
             JSONObject book = (JSONObject) obj;
             if (year == ((Long) book.get("year")).intValue()) {
-                System.out.println("\nТекущий элемент: book");
-                System.out.println("Название книги: " + book.get("title"));
-                System.out.println("Автор: " + book.get("author"));
-                System.out.println("Год издания: " + book.get("year"));
+                System.out.println("\nРўРµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚: book");
+                System.out.println("РќР°Р·РІР°РЅРёРµ РєРЅРёРіРё: " + book.get("title"));
+                System.out.println("РђРІС‚РѕСЂ: " + book.get("author"));
+                System.out.println("Р“РѕРґ РёР·РґР°РЅРёСЏ: " + book.get("year"));
             }
         }
     }
 
     private static void deleteBookByTitle(JSONObject jsonObject, Scanner scanner) {
-        System.out.print("Введите название книги для удаления: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РєРЅРёРіРё РґР»СЏ СѓРґР°Р»РµРЅРёСЏ: ");
         String title = scanner.nextLine();
         JSONArray jsonArray = (JSONArray) jsonObject.get("books");
         Iterator<JSONObject> iterator = jsonArray.iterator();
@@ -135,12 +135,13 @@ public class ex3 {
             if (title.equals(book.get("title"))) {
                 iterator.remove();
                 found = true;
-                System.out.println("Книга успешно удалена.");
+                System.out.println("РљРЅРёРіР° СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°.");
                 break;
             }
         }
         if (!found) {
-            System.out.println("Книга с таким названием не найдена.");
+            System.out.println("РљРЅРёРіР° СЃ С‚Р°РєРёРј РЅР°Р·РІР°РЅРёРµРј РЅРµ РЅР°Р№РґРµРЅР°.");
         }
     }
 }
+

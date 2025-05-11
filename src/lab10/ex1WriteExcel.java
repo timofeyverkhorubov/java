@@ -8,26 +8,26 @@ import java.io.IOException;
 
 public class ex1WriteExcel {
     public static void main(String[] args) throws IOException {
-        // Создаем новую книгу Excel
+        // РЎРѕР·РґР°РµРј РЅРѕРІСѓСЋ РєРЅРёРіСѓ Excel
         XSSFWorkbook workbook = new XSSFWorkbook();
 
-        // Создаем новый лист в книге
-        XSSFSheet sheet = workbook.createSheet("Товары");
+        // РЎРѕР·РґР°РµРј РЅРѕРІС‹Р№ Р»РёСЃС‚ РІ РєРЅРёРіРµ
+        XSSFSheet sheet = workbook.createSheet("РўРѕРІР°СЂС‹");
 
-        // Записываем данные в ячейки
+        // Р—Р°РїРёСЃС‹РІР°РµРј РґР°РЅРЅС‹Рµ РІ СЏС‡РµР№РєРё
         Row headerRow = sheet.createRow(0);
-        headerRow.createCell(0).setCellValue("Товар");
-        headerRow.createCell(1).setCellValue("Характеристики");
-        headerRow.createCell(2).setCellValue("Стоимость");
+        headerRow.createCell(0).setCellValue("РўРѕРІР°СЂ");
+        headerRow.createCell(1).setCellValue("РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё");
+        headerRow.createCell(2).setCellValue("РЎС‚РѕРёРјРѕСЃС‚СЊ");
 
         Row dataRow1 = sheet.createRow(1);
-        dataRow1.createCell(0).setCellValue("Книга");
-        dataRow1.createCell(1).setCellValue("Жанр: Фантастика, Автор: Иванов И.И.");
+        dataRow1.createCell(0).setCellValue("РљРЅРёРіР°");
+        dataRow1.createCell(1).setCellValue("Р–Р°РЅСЂ: Р¤Р°РЅС‚Р°СЃС‚РёРєР°, РђРІС‚РѕСЂ: РРІР°РЅРѕРІ Р.Р.");
         dataRow1.createCell(2).setCellValue(500.0);
 
         Row dataRow2 = sheet.createRow(2);
-        dataRow2.createCell(0).setCellValue("Компьютер");
-        dataRow2.createCell(1).setCellValue("Процессор Intel Core i5, Оперативная память: 16 Гб");
+        dataRow2.createCell(0).setCellValue("РљРѕРјРїСЊСЋС‚РµСЂ");
+        dataRow2.createCell(1).setCellValue("РџСЂРѕС†РµСЃСЃРѕСЂ Intel Core i5, РћРїРµСЂР°С‚РёРІРЅР°СЏ РїР°РјСЏС‚СЊ: 16 Р“Р±");
         dataRow2.createCell(2).setCellValue(25000.0);
 
 
@@ -37,6 +37,7 @@ public class ex1WriteExcel {
         workbook.close();
         outputStream.close();
 
-        System.out.println("Данные записаны в файл: " + filePath);
+        System.out.println("Р”Р°РЅРЅС‹Рµ Р·Р°РїРёСЃР°РЅС‹ РІ С„Р°Р№Р»: " + filePath);
     }
+
 }

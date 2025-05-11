@@ -11,29 +11,30 @@ public class ex1NewsParser {
 
     public static void main(String[] args) {
         try {
-            String url = "https://www.kostroma.kp.ru/?ysclid=mahvynviwk943949656";
-            System.out.println("Подключаюсь к " + url);
+            String url = "https://gtrk-kostroma.ru/";
+            System.out.println("РџРѕРґРєР»СЋС‡Р°СЋСЃСЊ Рє " + url);
             Document doc = Jsoup.connect(url).get();
-            System.out.println("Подключение успешно!");
+            System.out.println("РџРѕРґРєР»СЋС‡РµРЅРёРµ СѓСЃРїРµС€РЅРѕ!");
 
-            // Ищем элементы новостей
-            Elements newsItems = doc.select("div.sc-1tputnk-0.bbyOTY");
+            // РС‰РµРј СЌР»РµРјРµРЅС‚С‹ РЅРѕРІРѕСЃС‚РµР№
+            Elements newsItems = doc.select("div.news.news--lenta");
 
-            // Проходим по каждой новости
+            // РџСЂРѕС…РѕРґРёРј РїРѕ РєР°Р¶РґРѕР№ РЅРѕРІРѕСЃС‚Рё
             for (Element newsItem : newsItems) {
-                // Ищем заголовок
-                Element titleElement = newsItem.selectFirst("a.sc-1tputnk-2.bOJkdP");
-                String title = (titleElement != null) ? titleElement.text() : "Заголовок не найден";
+                // РС‰РµРј Р·Р°РіРѕР»РѕРІРѕРє
+                Element titleElement = newsItem.selectFirst("a"); // РџСЂРѕСЃС‚Рѕ РёС‰РµРј РїРµСЂРІС‹Р№ <a> РІРЅСѓС‚СЂРё РЅРѕРІРѕСЃС‚Рё
+                String title = (titleElement != null) ? titleElement.text() : "Р—Р°РіРѕР»РѕРІРѕРє РЅРµ РЅР°Р№РґРµРЅ";
 
-                // Выводим заголовок
-                System.out.println("Заголовок: " + title);
+                // Р’С‹РІРѕРґРёРј Р·Р°РіРѕР»РѕРІРѕРє
+                System.out.println("Р—Р°РіРѕР»РѕРІРѕРє: " + title);
                 System.out.println();
             }
 
         } catch (IOException e) {
-            System.err.println("Ошибка при подключении к сайту или парсинге: " + e.getMessage());
+            System.err.println("РћС€РёР±РєР° РїСЂРё РїРѕРґРєР»СЋС‡РµРЅРёРё Рє СЃР°Р№С‚Сѓ РёР»Рё РїР°СЂСЃРёРЅРіРµ: " + e.getMessage());
         } catch (Exception e) {
-            System.err.println("Непредвиденная ошибка: " + e.getMessage());
+            System.err.println("РќРµРїСЂРµРґРІРёРґРµРЅРЅР°СЏ РѕС€РёР±РєР°: " + e.getMessage());
         }
     }
+
 }

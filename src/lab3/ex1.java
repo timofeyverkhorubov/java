@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class ex1 {
     public static void main(String[] args) {
         Scanner id = new Scanner(System.in);
-        System.out.println("введите размер массива");
+        System.out.println("РІРІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°");
 
         int size = id.nextInt();
 
-        System.out.println("размер массива равен " + size);
+        System.out.println("СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР° СЂР°РІРµРЅ " + size);
 
         int[] nums = new int[size];
 
@@ -19,15 +19,15 @@ public class ex1 {
 
         for (int i = 0; i < nums.length; i++) {
             nums[i] = random.nextInt(200);
-            System.out.println("Элемент массива [" + i + "] = " + nums[i]);
+            System.out.println("Р­Р»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° [" + i + "] = " + nums[i]);
 
         }
         Arrays.sort(nums);
-        System.out.println("Произведена сортировка массива");
+        System.out.println("РџСЂРѕРёР·РІРµРґРµРЅР° СЃРѕСЂС‚РёСЂРѕРІРєР° РјР°СЃСЃРёРІР°");
 
         for (int i = 0; i < nums.length; i++) {
-            // Сообщение пользователю "для красоты и понимания"
-            System.out.println("Элемент массива [" + i + "] после сортировки = " + nums[i]);
+            // РЎРѕРѕР±С‰РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ "РґР»СЏ РєСЂР°СЃРѕС‚С‹ Рё РїРѕРЅРёРјР°РЅРёСЏ"
+            System.out.println("Р­Р»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° [" + i + "] РїРѕСЃР»Рµ СЃРѕСЂС‚РёСЂРѕРІРєРё = " + nums[i]);
         }
     }
 }

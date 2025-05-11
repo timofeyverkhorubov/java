@@ -13,19 +13,20 @@ public class ex1JsonParser {
             Object obj = parser
                     .parse(new FileReader("D:\\java\\java\\src\\lab10\\ex1JsonCreator.json"));
             JSONObject jsonObject = (JSONObject) obj;
-            System.out.println("Корневой элемент: "
+            System.out.println("РљРѕСЂРЅРµРІРѕР№ СЌР»РµРјРµРЅС‚: "
                     + jsonObject.keySet().iterator().next());
             JSONArray jsonArray = (JSONArray) jsonObject.get("books");
 
             for (Object o : jsonArray) {
                 JSONObject book = (JSONObject) o;
-                System.out.println("\nТекущий элемент: book");
-                System.out.println("Название книги: " + book.get("title"));
-                System.out.println("Автор: " + book.get("author"));
-                System.out.println("Год издания: " + book.get("year"));
+                System.out.println("\nРўРµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚: book");
+                System.out.println("РќР°Р·РІР°РЅРёРµ РєРЅРёРіРё: " + book.get("title"));
+                System.out.println("РђРІС‚РѕСЂ: " + book.get("author"));
+                System.out.println("Р“РѕРґ РёР·РґР°РЅРёСЏ: " + book.get("year"));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }

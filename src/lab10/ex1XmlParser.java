@@ -17,20 +17,20 @@ public class ex1XmlParser {
             DocumentBuilder dbBuilder = dbFactory.newDocumentBuilder();
             Document doc = dbBuilder.parse(inputFile);
             doc.getDocumentElement().normalize();
-            System.out.println("Корневой элемент: " + doc.getDocumentElement().getNodeName());
+            System.out.println("РљРѕСЂРЅРµРІРѕР№ СЌР»РµРјРµРЅС‚: " + doc.getDocumentElement().getNodeName());
             NodeList nodeList = doc.getElementsByTagName("book");
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
-                System.out.println("\nТекущий элемент: " + node.getNodeName());
+                System.out.println("\nРўРµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚: " + node.getNodeName());
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) node;
-                    System.out.println("Название книги:"
+                    System.out.println("РќР°Р·РІР°РЅРёРµ РєРЅРёРіРё:"
                             + element.getElementsByTagName("title").item(0)
                             .getTextContent());
-                    System.out.println("Автор: "
+                    System.out.println("РђРІС‚РѕСЂ: "
                             + element.getElementsByTagName("author").item(0)
                             .getTextContent());
-                    System.out.println("Год издания: "
+                    System.out.println("Р“РѕРґ РёР·РґР°РЅРёСЏ: "
                             + element.getElementsByTagName("year").item(0)
                             .getTextContent());
                 }
@@ -39,4 +39,5 @@ public class ex1XmlParser {
             e.printStackTrace();
         }
     }
+
 }
